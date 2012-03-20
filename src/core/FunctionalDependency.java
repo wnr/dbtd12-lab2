@@ -59,4 +59,22 @@ public class FunctionalDependency {
 		
 		throw new IllegalArgumentException();
 	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		for (String s : fromList) {
+			sb.append(s + ", ");
+		}
+		sb.setLength(sb.length()-2);
+		
+		sb.append(" -> ");
+		
+		for (String s : toList) {
+			sb.append(s + ", ");
+		}
+		sb.setLength(sb.length()-2);
+		
+		return sb.toString();
+	}
 }

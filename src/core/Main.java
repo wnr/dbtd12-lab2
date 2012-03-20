@@ -1,37 +1,23 @@
 package core;
+
 import java.util.LinkedList;
 
 public class Main {
-	private LinkedList<FunctionalDependency> list;
+	private LinkedList<FunctionalDependency> fdList;
+	private LinkedList<Relation> rList;
+	private Printer p;
 	
 	public Main() {
-		list = new LinkedList<FunctionalDependency>();
+		fdList = new LinkedList<FunctionalDependency>();
+		rList = new LinkedList<Relation>();
+		p = new Printer();
 		
-		new FileParser("./files/test.txt", list);
+//		new FileParser("./files/test.txt", fdList);
+		new FileParser("./files/test.txt", rList);
 		
-		printInfo();
-	}
-	
-	public void printInfo() {
-		for (FunctionalDependency fd : list) {
-			StringBuilder sb = new StringBuilder();
-			
-			sb.append("(");
-			for (String s : fd.getFromList()) {
-				sb.append(s + ", ");
-			}
-			sb.setLength(sb.length()-2);
-			
-			sb.append(", ");
-			
-			for (String s : fd.getToList()) {
-				sb.append(s + ", ");
-			}
-			sb.setLength(sb.length()-2);
-			sb.append(")");
-			
-			System.out.println(sb.toString());
-		}
+//		p.printFunctionalDependencies(fdList);
+		
+		p.printRelations(rList);
 	}
 	
 	public static void main(String[] args) {
