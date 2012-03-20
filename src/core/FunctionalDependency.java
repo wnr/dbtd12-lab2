@@ -1,3 +1,4 @@
+package core;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -14,11 +15,11 @@ public class FunctionalDependency {
 		this();
 		
 		for(int i = 0; i < from.length; i++){
-			addFrom(from[i]);
+			addFrom(from[i].trim());
 		}
 		
 		for(int i = 0; i < to.length; i++){
-			addTo(from[i]);
+			addTo(to[i].trim());
 		}
 	}
 	
