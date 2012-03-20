@@ -3,27 +3,21 @@ import java.util.Scanner;
 import java.util.LinkedList;
 
 public class FileParser {
-	private LinkedList<FunctionalDependency> list;
 	private Scanner sc;
-
-	public FileParser() {
-		list = new LinkedList<FunctionalDependency>();
-	}
 	
-	public FileParser(String fileLocation) throws FileNotFoundException {
-		new FileParser();
+	public FileParser(String fileLocation, LinkedList<FunctionalDependency> list) throws FileNotFoundException {
 		
 		File file = new File(fileLocation);
 		sc = new Scanner(new FileReader(file));
 		
 		while (sc.hasNextLine()) {
-			processLine(sc.nextLine());
+			processLine(sc.nextLine(), list);
 		}
 		
 		sc.close();
 	}
 	
-	public void processLine(String string) {
+	public void processLine(String string, LinkedList<FunctionalDependency> list) {
 		String[] stringArray = string.split("->");
 		String[] fromArray = stringArray[0].split(",");
 		String[] toArray = stringArray[1].split(",");
