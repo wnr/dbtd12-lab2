@@ -1,17 +1,17 @@
 package core;
 import java.io.*;
+import java.util.HashSet;
 import java.util.Scanner;
-import java.util.LinkedList;
 
 public class FileParser {
-	private Scanner sc;
 	
-	/*
-	public FileParser(String fileLocation, LinkedList<FunctionalDependency> list) {
+	public static HashSet<FunctionalDependency> parseFunctionalDependencies(String filename){
+		Scanner sc = null;
+		HashSet<FunctionalDependency> list = new HashSet<FunctionalDependency>();
+		
 		try {
-			File file = new File(fileLocation);
+			File file = new File(filename);
 			sc = new Scanner(new FileReader(file));
-			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -23,42 +23,15 @@ public class FileParser {
 			
 			sc.close();
 		}
+		
+		return list;
 	}
 	
-	public void processLine(String string, LinkedList<FunctionalDependency> list) {
+	private static void processLine(String string, HashSet<FunctionalDependency> list) {
 		String[] stringArray = string.split("->");
 		String[] fromArray = stringArray[0].split(",");
 		String[] toArray = stringArray[1].split(",");
 		
 		list.add(new FunctionalDependency(fromArray, toArray));
-	}
-	*/
-	
-	
-	public FileParser(String fileLocation, LinkedList<Relation> list) {
-		try {
-			File file = new File(fileLocation);
-			sc = new Scanner(new FileReader(file));
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		} finally {
-			while (sc.hasNextLine()) {
-				processLine(sc.nextLine(), list);
-			}
-			
-			sc.close();
-		}
-	}
-	
-	public void processLine(String string, LinkedList<Relation> list) {
-		String[] stringArray = string.split("->");
-		String[] fromArray = stringArray[0].split(",");
-		String[] toArray = stringArray[1].split(",");
-		
-		list.add(new Relation(fromArray, toArray));
-	}
-	
+	}	
 }

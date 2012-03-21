@@ -1,23 +1,17 @@
 package core;
 
-import java.util.LinkedList;
+import java.util.HashSet;
 
 public class Main {
-	private LinkedList<FunctionalDependency> fdList;
-	private LinkedList<Relation> rList;
-	private Printer p;
+	private HashSet<FunctionalDependency> fdList;
+	private HashSet<Relation> rList;
+	private Printer printer;
 	
 	public Main() {
-		fdList = new LinkedList<FunctionalDependency>();
-		rList = new LinkedList<Relation>();
-		p = new Printer();
-		
-//		new FileParser("./files/test.txt", fdList);
-		new FileParser("./files/test.txt", rList);
-		
-//		p.printFunctionalDependencies(fdList);
-		
-		p.printRelations(rList);
+		fdList = FileParser.parseFunctionalDependencies("./files/test.txt");
+		printer = new Printer();
+	
+		printer.printFunctionalDependencies(fdList);
 	}
 	
 	public static void main(String[] args) {

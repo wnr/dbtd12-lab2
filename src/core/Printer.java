@@ -1,5 +1,6 @@
 package core;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 
 public class Printer {
@@ -8,7 +9,7 @@ public class Printer {
 		
 	}
 	
-	public void printFunctionalDependencies(LinkedList<FunctionalDependency> list) {
+	public void printFunctionalDependencies(HashSet<FunctionalDependency> list) {
 		for (FunctionalDependency fd : list) {
 			System.out.println(fd.toString());
 		}
