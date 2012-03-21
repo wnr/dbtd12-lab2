@@ -3,48 +3,60 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class FunctionalDependency {
-	private HashSet<String> fromList;
-	private HashSet<String> toList;
+	private HashSet<String> leftList;
+	private HashSet<String> rightList;
 	
 	public FunctionalDependency(){
-		fromList = new HashSet<String>();
-		toList = new HashSet<String>();
+		leftList = new HashSet<String>();
+		rightList = new HashSet<String>();
 	}
 	
-	public FunctionalDependency(String[] from, String[] to){
+	public FunctionalDependency(String[] left, String[] right){
 		this();
 		
-		for(int i = 0; i < from.length; i++){
-			addFrom(from[i].trim());
+		for(int i = 0; i < left.length; i++){
+			addLeft(left[i].trim());
 		}
 		
-		for(int i = 0; i < to.length; i++){
-			addTo(to[i].trim());
+		for(int i = 0; i < right.length; i++){
+			addRight(right[i].trim());
 		}
 	}
 	
-	public void addFrom(String from){
-		fromList.add(from);
+	public FunctionalDependency(HashSet<String> left, HashSet<String> right){
+		this();
+		leftList.addAll(left);
+		rightList.addAll(right);
 	}
 	
-	public void addTo(String to){
-		toList.add(to);
+	public FunctionalDependency(HashSet<String> left, String right){
+		this();
+		leftList.addAll(left);
+		addRight(right);
 	}
 	
-	public String getFrom(int index){
-		return getListElement(fromList, index);
+	public void addLeft(String left){
+		leftList.add(left);
 	}
 	
-	public String getTo(int index){
-		return getListElement(toList, index);
+	public void addRight(String right){
+		rightList.add(right);
 	}
 	
-	public HashSet<String> getFromList(){
-		return fromList;
+	public String getLeft(int index){
+		return getListElement(leftList, index);
 	}
 	
-	public HashSet<String> getToList(){
-		return toList;
+	public String getRight(int index){
+		return getListElement(rightList, index);
+	}
+	
+	public HashSet<String> getLeftList(){
+		return leftList;
+	}
+	
+	public HashSet<String> getRightList(){
+		return rightList;
 	}
 	
 	private String getListElement(HashSet<String> list, int index){
@@ -63,14 +75,14 @@ public class FunctionalDependency {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 
-		for (String s : fromList) {
+		for (String s : leftList) {
 			sb.append(s + ", ");
 		}
 		sb.setLength(sb.length()-2);
 		
 		sb.append(" -> ");
 		
-		for (String s : toList) {
+		for (String s : rightList) {
 			sb.append(s + ", ");
 		}
 		sb.setLength(sb.length()-2);

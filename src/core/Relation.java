@@ -9,6 +9,12 @@ public class Relation {
 		list = new HashSet<String>();
 	}
 	
+	public Relation(HashSet<String> attributes){
+		this();
+		
+		list.addAll(attributes);
+	}
+	
 	public Relation(String[] from, String[] to){
 		this();
 		

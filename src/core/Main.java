@@ -12,6 +12,14 @@ public class Main {
 		printer = new Printer();
 	
 		printer.printFunctionalDependencies(fdList);
+		
+		
+		HashSet<String> proj = new HashSet<String>();
+		proj.add("X");
+		proj.add("Y");
+		
+		System.out.println("\n\n");
+		printer.printFunctionalDependencies(Projecter.projDependenciesByAttributes(proj, fdList));
 	}
 	
 	public static void main(String[] args) {

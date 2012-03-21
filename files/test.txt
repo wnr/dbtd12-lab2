@@ -1,3 +1,2 @@
-Kex, Kexet -> Lolers
-Hulabandula, Abooo -> Hehe
-Men -> Asså, Haha
+X -> A, B
+A, B -> Y

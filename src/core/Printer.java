@@ -20,4 +20,8 @@ public class Printer {
 			System.out.println(fd.toString());
 		}
 	}
+	
+	public void printRelation(Relation relation) {
+		System.out.println(relation.toString());
+	}
 }
