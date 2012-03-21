@@ -15,7 +15,7 @@ public class Printer {
 		}
 	}
 	
-	public void printRelations(LinkedList<Relation> list) {
+	public void printRelations(HashSet<Relation> list) {
 		for (Relation fd : list) {
 			System.out.println(fd.toString());
 		}

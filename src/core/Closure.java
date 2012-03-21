@@ -59,5 +59,8 @@ public class Closure {
 		return closureAttributes;
 	}
 	
+	public HashSet<String> getStartAttributes(){
+		return startAttributes;
+	}
 	
 }

@@ -27,8 +27,8 @@ public class Relation {
 		}
 	}
 	
-	public void add(String from){
-		list.add(from);
+	public void add(String attribute){
+		list.add(attribute);
 	}
 	
 	public String getIndex(int index){
@@ -64,5 +64,10 @@ public class Relation {
 		sb.append(")");
 		
 		return sb.toString();
+	}
+
+	public void addAttributes(HashSet<String> attr) {
+		list.addAll(attr);
+		
 	}
 }

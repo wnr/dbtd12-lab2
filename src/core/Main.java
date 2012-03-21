@@ -8,7 +8,7 @@ public class Main {
 	private Printer printer;
 	
 	public Main() {
-		fdList = FileParser.parseFunctionalDependencies("./files/test.txt");
+		fdList = FileParser.parseFunctionalDependencies("./files/input3.dep");
 		printer = new Printer();
 	
 		printer.printFunctionalDependencies(fdList);
@@ -22,6 +22,10 @@ public class Main {
 		
 		System.out.println("\n\n");
 		printer.printFunctionalDependencies(Projecter.projDependenciesByAttributes(proj, fdList));
+		
+		System.out.println("\n\n");
+		
+		printer.printRelations(Normalizer.makeBCNF(fdList));
 	}
 	
 	public static void main(String[] args) {
