@@ -16,6 +16,7 @@ public class Closure {
 		this.closureAttributes = new HashSet<String>();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Closure(HashSet<String> startAttributes, HashSet<FunctionalDependency> knownDependencies){
 		//dependencies = new HashSet<FunctionalDependency>();
 		this.startAttributes = (HashSet<String>) startAttributes.clone();
@@ -29,6 +30,7 @@ public class Closure {
 		closureAttributes.add(s);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void computeClosure(HashSet<FunctionalDependency> knownDependencies){
 		HashSet<FunctionalDependency> known = (HashSet<FunctionalDependency>) knownDependencies.clone();
 		

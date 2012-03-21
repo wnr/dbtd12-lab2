@@ -15,8 +15,10 @@ public class Main {
 		
 		
 		HashSet<String> proj = new HashSet<String>();
-		proj.add("X");
-		proj.add("Y");
+		proj.add("A");
+		proj.add("B");
+		proj.add("C");
+		proj.add("D");
 		
 		System.out.println("\n\n");
 		printer.printFunctionalDependencies(Projecter.projDependenciesByAttributes(proj, fdList));
