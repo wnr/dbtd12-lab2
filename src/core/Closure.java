@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class Closure {
+
 	//HashSet<FunctionalDependency> dependencies;
 	HashSet<String> closureAttributes;
 	
@@ -63,4 +64,20 @@ public class Closure {
 		return startAttributes;
 	}
 	
+	@Override
+	public String toString() {
+		String temp = "Start: ";
+		
+		for(String s : startAttributes){
+			temp += s;
+		}
+		
+		temp += "\nClosure: ";
+		
+		for(String s : closureAttributes){
+			temp += s;
+		}
+		
+		return temp;
+	}
 }

@@ -31,8 +31,8 @@ public class Normalizer {
 			
 			Closure closure = new Closure(it.next().getLeftList(), dependencies);
 			
-			if(closure.getStartAttributes().size() != 1 && relation.getRelationList().size() == 5)
-				continue;
+			/*if(closure.getStartAttributes().size() != 1 && relation.getRelationList().size() == 5)
+				continue;*/
 			
 			if(!isSuperKey(closure.getClosureAttributes(), relation.getRelationList(), dependencies) && relation.getRelationList().size() > 2 && dependencies.size() > 0){
 				Relation r1 = new Relation(closure.getClosureAttributes());
