@@ -8,7 +8,8 @@ public class Main {
 	private Printer printer;
 	
 	public Main() {
-		fdList = FileParser.parseFunctionalDependencies("./files/input3.dep");
+		fdList = FileParser.parseFunctionalDependencies("./files/generics" +
+				".dep");
 		printer = new Printer();
 	
 		printer.printFunctionalDependencies(fdList);
