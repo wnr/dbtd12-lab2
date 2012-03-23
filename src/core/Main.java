@@ -8,21 +8,11 @@ public class Main {
 	private Printer printer;
 	
 	public Main() {
-		fdList = FileParser.parseFunctionalDependencies("./files/generics" +
+		fdList = FileParser.parseFunctionalDependencies("./files/input3" +
 				".dep");
 		printer = new Printer();
 	
 		printer.printFunctionalDependencies(fdList);
-		
-		
-		HashSet<String> proj = new HashSet<String>();
-		proj.add("A");
-		proj.add("B");
-		proj.add("C");
-		proj.add("D");
-		
-		System.out.println("\n\n");
-		printer.printFunctionalDependencies(Projecter.projDependenciesByAttributes(proj, fdList));
 		
 		System.out.println("\n\n");
 		

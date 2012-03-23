@@ -25,6 +25,8 @@ public class Normalizer {
 	private static HashSet<Relation> makeBCNFHelper(Relation relation, HashSet<FunctionalDependency> dependencies){
 		HashSet<Relation> relations = new HashSet<Relation>();
 		
+//		System.out.println(relation.toString() + "..." + dependencies.toString());
+		
 		Iterator<FunctionalDependency> it = dependencies.iterator();
 		while(it.hasNext()){
 			
