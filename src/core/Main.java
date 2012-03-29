@@ -3,20 +3,23 @@ package core;
 import java.util.HashSet;
 
 public class Main {
-	private HashSet<FunctionalDependency> fdList;
-	private HashSet<Relation> rList;
+	private HashSet<FunctionalDependency> dependencies;
+	private HashSet<Relation> relations;
 	private Printer printer;
 	
 	public Main() {
-		fdList = FileParser.parseFunctionalDependencies("./files/input3" +
-				".dep");
 		printer = new Printer();
-	
-		printer.printFunctionalDependencies(fdList);
+		
+		//läser in alla beroenden från en given fil.
+		dependencies = FileParser.parseFunctionalDependencies("./files/input3.dep");
+		
+		//skriver ut alla kända beroenden
+		printer.printFunctionalDependencies(dependencies);
 		
 		System.out.println("\n\n");
 		
-		printer.printRelations(Normalizer.makeBCNF(fdList));
+		//beräknar BCNF utifrån de kända beroenden och skriver ut resultatet.
+		printer.printRelations(Normalizer.makeBCNF(dependencies));
 	}
 	
 	public static void main(String[] args) {

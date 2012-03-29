@@ -2,6 +2,9 @@ package core;
 import java.util.HashSet;
 import java.util.Iterator;
 
+/**
+ * Representerar en relation
+ */
 public class Relation {
 	private HashSet<String> list;
 	

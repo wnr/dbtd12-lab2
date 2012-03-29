@@ -2,6 +2,9 @@ package core;
 import java.util.HashSet;
 import java.util.Iterator;
 
+/**
+ * Representerar ett funktionellt beroende
+ */
 public class FunctionalDependency {
 	private HashSet<String> leftList;
 	private HashSet<String> rightList;
@@ -59,6 +62,11 @@ public class FunctionalDependency {
 		return rightList;
 	}
 	
+	
+	/**
+	 * Returnerar element på plats index.
+	 * OBS: Första elementet ligger på plats 1.
+	 */
 	private String getListElement(HashSet<String> list, int index){
 		Iterator<String> it = list.iterator();
 		while(it.hasNext()){

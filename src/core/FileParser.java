@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class FileParser {
 	
+	/**
+	 * Läser in alla beroenden från en given fil.
+	 */
 	public static HashSet<FunctionalDependency> parseFunctionalDependencies(String filename){
 		Scanner sc = null;
 		HashSet<FunctionalDependency> list = new HashSet<FunctionalDependency>();
@@ -27,6 +30,9 @@ public class FileParser {
 		return list;
 	}
 	
+	/**
+	 * Hjälpfunktion till parseFunctionalDependencies
+	 */
 	private static void processLine(String string, HashSet<FunctionalDependency> list) {
 		String[] stringArray = string.split("->");
 		String[] fromArray = stringArray[0].split(",");
