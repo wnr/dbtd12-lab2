@@ -12,30 +12,33 @@ public class Projecter {
 		
 		Iterator<HashSet<String>> it = subSet.iterator();
 		
-		//gÃ¥ igenom varje kÃ¤nt beroende
+		//går igenom varje set av attributer.
 		while(it.hasNext()){
 			HashSet<String> set = it.next();
 			
-			//kolla sÃ¥ att vÃ¤nstra sidan pÃ¥ nuvaranda beroendet finns i attributes
+			//kolla så att vårt set inte innehåller annat än vårt hölje av attributer
 			if(attributes.containsAll(set)){
 			
-				//rÃ¤kna ut hÃ¶ljet fÃ¶r beroendet
+				//räkna ut höljet för vårt utvalda set.
 				Closure closure = new Closure(set, known);
 				
-				//fÃ¶r varje attribut i hÃ¶ljet ska ett beroende skapas pÃ¥ formen <vÃ¤nstra sida av nuvarande beroende> -> <ett attribut ur hÃ¶ljet>
+				//för varje attribut i höljet ska ett beroende skapas på formen <vårt utvalda set> -> <ett attribut ur höljet>
 				//och lÃ¤gga till beroendet i listan med kÃ¤nda beroenden.
 				Iterator<String> it2 = closure.getClosureAttributes().iterator();
 				Outer:
 				while(it2.hasNext()){
 					String rightAttribute = it2.next();
-					
+					//Kontrollera att vårt set inte har det utvalda attributet ur höljet samt att det utvalda attributet verkligen finns i vår projektion av attributer
 					if(!set.contains(rightAttribute) && attributes.contains(rightAttribute)){
 						Iterator<FunctionalDependency> it3 = dependencies.iterator();
 						while(it3.hasNext()){
 							FunctionalDependency currentDep = it3.next();
+							//Kontrollera om vi redan har lagt till ett beroende med samma högerattribut
 							if(currentDep.getRight(1).equals(rightAttribute)){
+								//Om de tillagda beroende innehåller hela vårt set, ta bort detta beroende.
 								if(currentDep.getLeftList().containsAll(set)){
 									it3.remove();
+								// Om vårt set innehåller hela vårt tillagda beroende så ta fram en ny rightattribute.
 								} else if(set.containsAll(currentDep.getLeftList())){
 									continue Outer;
 								}
