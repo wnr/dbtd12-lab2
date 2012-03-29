@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class FileParser {
 	
 	/**
-	 * LŠser in alla beroenden frŒn en given fil.
+	 * LŠser in alla beroenden från en given fil.
 	 */
 	public static HashSet<FunctionalDependency> parseFunctionalDependencies(String filename){
 		Scanner sc = null;

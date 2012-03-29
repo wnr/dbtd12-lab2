@@ -10,15 +10,15 @@ public class Main {
 	public Main() {
 		printer = new Printer();
 		
-		//lŠser in alla beroenden frŒn en given fil.
+		//läser in alla beroenden från en given fil.
 		dependencies = FileParser.parseFunctionalDependencies("./files/input3.dep");
 		
-		//skriver ut alla kŠnda beroenden
+		//skriver ut alla kända beroenden
 		printer.printFunctionalDependencies(dependencies);
 		
 		System.out.println("\n\n");
 		
-		//berŠknar BCNF utifrŒn de kŠnda beroenden och skriver ut resultatet.
+		//beräknar BCNF utifrån de kända beroenden och skriver ut resultatet.
 		printer.printRelations(Normalizer.makeBCNF(dependencies));
 	}
 	
